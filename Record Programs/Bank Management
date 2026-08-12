@@ -1,0 +1,223 @@
+package record;
+import java.util.Scanner;
+
+//Parent Class
+class Account {
+ int accountNumber;
+ double balance;
+ String accountType;
+
+ Account(int accountNumber, double balance, String accountType) {
+     this.accountNumber = accountNumber;
+     this.balance = balance;
+     this.accountType = accountType;
+ }
+
+ void deposit(double amount) {
+     balance = balance + amount;
+     System.out.println("Amount deposited: " + amount);
+ }
+
+ void withdraw(double amount) {
+     if (amount <= balance) {
+         balance = balance - amount;
+         System.out.println("Amount withdrawn: " + amount);
+     } 
+     else {
+         System.out.println("Insufficient balance");
+     }
+ }
+
+ void transfer(Account receiver, double amount) {
+     if (amount <= balance) {
+         balance = balance - amount;
+         receiver.balance = receiver.balance + amount;
+         System.out.println("Transfer successful: " + amount);
+     } else {
+         System.out.println("Insufficient balance");
+     }
+ }
+
+ void display() {
+     System.out.println("Account Number: " + accountNumber);
+     System.out.println("Account Type: " + accountType);
+     System.out.println("Balance: " + balance);
+ }
+}
+
+//Savings Account
+class SavingsAccount extends Account {
+ double interestRate;
+
+ SavingsAccount(int accountNumber, double balance, double interestRate) {
+     super(accountNumber, balance, "Savings");
+     this.interestRate = interestRate;
+ }
+
+ void calculateInterest() {
+     double interest = balance * interestRate / 100;
+     balance = balance + interest;
+     System.out.println("Interest added: " + interest);
+ }
+}
+
+//Current Account
+class CurrentAccount extends Account {
+ double overdraftLimit;
+
+ CurrentAccount(int accountNumber, double balance, double overdraftLimit) {
+     super(accountNumber, balance, "Current");
+     this.overdraftLimit = overdraftLimit;
+ }
+
+ void withdraw(double amount) {
+     if (amount <= balance + overdraftLimit) {
+         balance = balance - amount;
+         System.out.println("Amount withdrawn: " + amount);
+     } else {
+         System.out.println("Overdraft limit exceeded");
+     }
+ }
+}
+
+//Main Class
+public class BankManagement {
+
+ public static void main(String[] args) {
+
+     Scanner sc = new Scanner(System.in);
+
+     SavingsAccount s1 =
+         new SavingsAccount(101, 5000, 5);
+
+     CurrentAccount c1 =
+         new CurrentAccount(102, 3000, 1000);
+
+     int choice;
+
+     do {
+         System.out.println("\n===== BANK MENU =====");
+         System.out.println("1. Deposit");
+         System.out.println("2. Withdraw");
+         System.out.println("3. Calculate Interest");
+         System.out.println("4. Transfer Money");
+         System.out.println("5. Display Account Details");
+         System.out.println("6. Exit");
+
+         System.out.print("Enter your choice: ");
+         choice = sc.nextInt();
+
+         switch (choice) {
+             case 1:
+                 s1.deposit(1000);
+                 System.out.println("Amount deposited.");
+                 break;
+
+             case 2:
+                 s1.withdraw(500);
+                  System.out.println("Amount withdrawn.");
+                 break;
+
+             case 3:
+                 s1.calculateInterest();
+                  System.out.println("Interest calculated.");
+                 break;
+
+             case 4:
+                 s1.transfer(c1, 500);
+                  System.out.println("Amount transferred.");
+                 break;
+
+             case 5:
+                  System.out.println("\nSavings Account:");
+                 s1.display();
+                  System.out.println("\nCurrent Account:");
+                 c1.display();
+                 break;
+
+             case 6:
+                 System.out.println("Thank you!");
+                 break;
+
+             default:
+                 System.out.println("Invalid choice");
+         }
+
+     } while (choice != 6);
+
+     sc.close();
+ }
+}
+/*
+===== BANK MENU =====
+1. Deposit
+2. Withdraw
+3. Calculate Interest
+4. Transfer Money
+5. Display Account Details
+6. Exit
+Enter your choice: 1
+Amount deposited: 1000.0
+Amount deposited.
+
+===== BANK MENU =====
+1. Deposit
+2. Withdraw
+3. Calculate Interest
+4. Transfer Money
+5. Display Account Details
+6. Exit
+Enter your choice: 2
+Amount withdrawn: 500.0
+Amount withdrawn.
+
+===== BANK MENU =====
+1. Deposit
+2. Withdraw
+3. Calculate Interest
+4. Transfer Money
+5. Display Account Details
+6. Exit
+Enter your choice: 3
+Interest added: 275.0
+Interest calculated.
+
+===== BANK MENU =====
+1. Deposit
+2. Withdraw
+3. Calculate Interest
+4. Transfer Money
+5. Display Account Details
+6. Exit
+Enter your choice: 4
+Transfer successful: 500.0
+Amount transferred.
+
+===== BANK MENU =====
+1. Deposit
+2. Withdraw
+3. Calculate Interest
+4. Transfer Money
+5. Display Account Details
+6. Exit
+Enter your choice: 5
+
+Savings Account:
+Account Number: 101
+Account Type: Savings
+Balance: 5275.0
+
+Current Account:
+Account Number: 102
+Account Type: Current
+Balance: 3500.0
+
+===== BANK MENU =====
+1. Deposit
+2. Withdraw
+3. Calculate Interest
+4. Transfer Money
+5. Display Account Details
+6. Exit
+Enter your choice: 6
+Thank you!*/
