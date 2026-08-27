@@ -1,0 +1,26 @@
+package assignment;
+interface I1 {
+    void displayI1();
+}
+
+class C1 implements I1 {
+
+    public void displayI1() {
+        System.out.println("This is I1 interface");
+    }
+
+    void displayC1() {
+        System.out.println("This is C1 class");
+    }
+}
+
+public class C1ImplementsI1 {
+    public static void main(String[] args) {
+        C1 obj = new C1();
+
+        obj.displayI1();
+        obj.displayC1();
+    }
+}
+
+
