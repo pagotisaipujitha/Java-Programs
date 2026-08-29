@@ -1,0 +1,45 @@
+package corejava;
+
+interface I1 {
+    void diff();
+}
+
+interface I2 {
+    void sum();
+}
+
+interface I3 extends I1, I2 {
+    void add();
+}
+
+class Demo implements I3 {
+
+    @Override
+    public void add() {
+        System.out.println("I3 method");
+    }
+
+    @Override
+    public void sum() {
+        System.out.println("I2 method");
+    }
+
+    @Override
+    public void diff() {
+        System.out.println("I1 method");
+    }
+}
+
+public class I1ExtendsI2I3 {
+
+    public static void main(String[] args) {
+
+        Demo d = new Demo();
+
+        d.diff();
+        d.sum();
+        d.add();
+    }
+}
+
+
