@@ -1,0 +1,42 @@
+package typesofinheritence;
+
+// Class C2
+class C2 {
+
+    // Method of C2
+    void show() {
+        System.out.println("This is C2 class");
+    }
+}
+
+// Interface I1
+interface I1 {
+
+    // Abstract method
+    void display();
+}
+
+// C1 tries to implement C2 and extend I1
+// This is INVALID in Java
+class C1 implements C2 extends I1 {
+
+    // Implementing the method of I1
+    public void display() {
+        System.out.println("This is I1 interface");
+    }
+}
+
+// Main class
+public class Main {
+
+    // Main method
+    public static void main(String[] args) {
+
+        // Creating object of C1
+        C1 obj = new C1();
+
+        // Calling methods
+        obj.show();
+        obj.display();
+    }
+}
