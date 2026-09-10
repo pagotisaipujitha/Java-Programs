@@ -1,0 +1,15 @@
+package corejava;
+
+public class StringLength {
+	    public static void main(String[] args) {
+
+	        String str = "Good Morning";
+
+	        int n = str.length();
+
+	        System.out.println("String: " + str);
+	        System.out.println("Length of string: " + n);
+	    }
+	}
+
+
