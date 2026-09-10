@@ -1,0 +1,49 @@
+package record;
+class Cow {
+    String place = "Cowshed";
+    String food = "Grass";
+    String sound = "Moo";
+}
+
+class Pig {
+    String place = "Pigsty";
+    String food = "Vegetables";
+    String sound = "Oink";
+}
+
+class Horse {
+    String place = "Stable";
+    String food = "Grass and hay";
+    String sound = "Neigh";
+}
+
+public class FarmAnimals {
+
+    public static void main(String[] args) {
+
+        Cow cow = new Cow();
+        Pig pig = new Pig();
+        Horse horse = new Horse();
+
+        System.out.println("Cow");
+        System.out.println("Stays: " + cow.place);
+        System.out.println("Eats: " + cow.food);
+        System.out.println("Sound: " + cow.sound);
+
+        System.out.println();
+
+        System.out.println("Pig");
+        System.out.println("Stays: " + pig.place);
+        System.out.println("Eats: " + pig.food);
+        System.out.println("Sound: " + pig.sound);
+
+        System.out.println();
+
+        System.out.println("Horse");
+        System.out.println("Stays: " + horse.place);
+        System.out.println("Eats: " + horse.food);
+        System.out.println("Sound: " + horse.sound);
+    }
+}
+
+
