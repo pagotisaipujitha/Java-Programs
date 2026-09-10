@@ -1,0 +1,16 @@
+package corejava;
+
+public class StringIndexOf {
+
+	    public static void main(String[] args) {
+
+	        String str = "Sai Pujitha";
+
+	        int result = str.indexOf('P');
+
+	        System.out.println("String: " + str);
+	        System.out.println("Index of P: " + result);
+	    }
+	}
+
+
