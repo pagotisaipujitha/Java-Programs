@@ -1,0 +1,119 @@
+package record;
+import java.util.Date;
+
+//Customer class
+class Customer {
+ String name;
+ String location;
+
+ // Constructor
+ Customer(String name, String location) {
+     this.name = name;
+     this.location = location;
+ }
+
+ // Method to send order
+ void sendOrder() {
+     System.out.println(name + " from " + location + " sent an order.");
+ }
+
+ // Method to receive order
+ void receiveOrder() {
+     System.out.println(name + " received the order.");
+ }
+}
+
+
+//Order class
+class Order {
+ Date date;
+ String number;
+
+ // Constructor
+ Order(Date date, String number) {
+     this.date = date;
+     this.number = number;
+ }
+
+ // Confirm order
+ void confirm() {
+     System.out.println("Order " + number + " is confirmed.");
+ }
+
+ // Close order
+ void close() {
+     System.out.println("Order " + number + " is closed.");
+ }
+}
+
+
+//SpecialOrder class inherits Order
+class SpecialOrder extends Order {
+
+ // Constructor
+ SpecialOrder(Date date, String number) {
+     super(date, number);
+ }
+
+ // Dispatch special order
+ void dispatch() {
+     System.out.println("Special order " + number + " is dispatched.");
+ }
+}
+
+
+//NormalOrder class inherits Order
+class NormalOrder extends Order {
+
+ // Constructor
+ NormalOrder(Date date, String number) {
+     super(date, number);
+ }
+
+ // Dispatch normal order
+ void dispatch() {
+     System.out.println("Normal order " + number + " is dispatched.");
+ }
+
+ // Receive normal order
+ void receive() {
+     System.out.println("Normal order " + number + " is received.");
+ }
+}
+
+
+//Main class
+public class OrdersExample {
+ public static void main(String[] args) {
+
+     // Create Customer
+     Customer customer = new Customer("Sai", "Srikakulam");
+
+     // Customer sends order
+     customer.sendOrder();
+
+     // Create Special Order
+     SpecialOrder specialOrder =
+         new SpecialOrder(new Date(), "SO101");
+
+     System.out.println("\n--- Special Order ---");
+     specialOrder.confirm();
+     specialOrder.dispatch();
+     specialOrder.close();
+
+     // Create Normal Order
+     NormalOrder normalOrder =
+         new NormalOrder(new Date(), "NO102");
+
+     System.out.println("\n--- Normal Order ---");
+     normalOrder.confirm();
+     normalOrder.dispatch();
+     normalOrder.receive();
+     normalOrder.close();
+
+     // Customer receives order
+     System.out.println();
+     customer.receiveOrder();
+ }
+}
+
