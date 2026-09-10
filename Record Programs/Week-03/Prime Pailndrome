@@ -1,0 +1,89 @@
+package record;
+import java.util.Scanner;
+
+public class PrimePalindrome {
+	 
+
+
+	    public static void main(String[] args) {
+
+	        Scanner sc = new Scanner(System.in);
+
+	        // Taking input
+	        System.out.print("Enter a number: ");
+	        int n = sc.nextInt();
+
+	        
+	        // Check whether number is Prime
+	        
+
+	        int count = 0;
+
+	        for (int i = 1; i <= n; i++) {
+
+	            if (n % i == 0) {
+	                count++;
+	            }
+	        }
+
+	        boolean prime;
+
+	        if (count == 2) {
+	            prime = true;
+	        } else {
+	            prime = false;
+	        }
+
+	        
+	        // Check whether number is Palindrome
+	        
+
+	        int original = n;
+	        int reverse = 0;
+
+	        while (n > 0) {
+
+	            int digit = n % 10;
+
+	            reverse = reverse * 10 + digit;
+
+	            n = n / 10;
+	        }
+
+	        boolean palindrome;
+
+	        if (original == reverse) {
+	            palindrome = true;
+	        } else {
+	            palindrome = false;
+	        }
+
+	        // -----------------------------
+	        // Display Result
+	        // -----------------------------
+
+	        if (prime && palindrome) {
+
+	            System.out.println(original +
+	                    " is a Prime Palindrome number.");
+
+	        } else if (prime) {
+
+	            System.out.println(original +
+	                    " is Prime but not Palindrome.");
+
+	        } else if (palindrome) {
+
+	            System.out.println(original +
+	                    " is Palindrome but not Prime.");
+
+	        } else {
+
+	            System.out.println(original +
+	                    " is neither Prime nor Palindrome.");
+	        }
+
+	        sc.close();
+	    }
+}
+	
