@@ -1,0 +1,16 @@
+package corejava;
+
+public class StringToUpper {
+
+	    public static void main(String[] args) {
+
+	        String str = "My Collection";
+
+	        String result = str.toUpperCase();
+
+	        System.out.println("Original String: " + str);
+	        System.out.println("Uppercase String: " + result);
+	    }
+	}
+
+
