@@ -1,4 +1,4 @@
-Student Name: Pagoti Sai Pujitha
+Student Name: Pagoti Sai Pujitha\n
 Roll Number: A25126552241
 Department: Computer Science & Engineering (AI & ML)
 Academic Year: 2026–2027 (Semester 3)
